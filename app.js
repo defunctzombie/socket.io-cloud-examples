@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded());
 app.post('/update', function(req,res) {
   var body = req.body;
   var id = 'ns1';
-
+  var type = 'new message';  
   debug('finish ee emit');
   console.log('The request was' + req);
   console.log('The body was' + body);
@@ -28,6 +28,7 @@ app.post('/update', function(req,res) {
   // body : body,
    json : {
             "id": id,
+	    "type": type,
 	    "message": body.message
 	  }
    }, function (error, response, body2) {
