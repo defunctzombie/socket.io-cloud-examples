@@ -7,13 +7,34 @@
 </head>
 <body>
 
-  <form action="update" method="post">
+<style>
+  .hide { position:absolute; top: -1px; left: -1px; width:1px; height:1px;}
+</style>
+  <iframe name="hiddenFrame" class="hide"></iframe>
+
+  <div class="chat page">
+    <div class="chatArea">
+      <ul class="messages"></ul>
+    </div>
+  </div>
+
+  <ul></ul>
+
+  <form action="update" method="post" target="hiddenFrame">
         Message: <input type="text" name="message"><br>
         <input type="submit" value="Submit">
   </form>
 
 
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+  <script type='text/javascript'>
+    var socket = io("http://localhost:3000/ns1");
+  </script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <script src="/main.js"></script>
+
 </body>
 </html>

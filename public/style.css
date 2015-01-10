@@ -112,8 +112,8 @@ ul {
 /* Messages */
 
 .chatArea {
-  height: 100%;
-  padding-bottom: 60px;
+  height: auto;
+  padding-bottom: 10px;
 }
 
 .messages {
