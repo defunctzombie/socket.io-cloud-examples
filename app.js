@@ -25,7 +25,7 @@ app.post('/update', function(req,res) {
 	                  "type": type,
 	                  "payload": body.message }
            }, function (error, response, body2) {
-                  console.log(body2);
+                  debug(body2);
            });
 
   res.json({ });
