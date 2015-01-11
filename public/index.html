@@ -12,20 +12,14 @@
 </style>
   <iframe name="hiddenFrame" class="hide"></iframe>
 
-  <div class="chat page">
-    <div class="chatArea">
-      <ul class="messages"></ul>
-    </div>
-  </div>
 
-  <ul></ul>
 
   <form action="update" method="post" target="hiddenFrame">
-        Message: <input type="text" name="message"><br>
+        Message: <input type="text" name="message">
         <input type="submit" value="Submit">
   </form>
 
-
+  <ul></ul>
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
   <script type='text/javascript'>
