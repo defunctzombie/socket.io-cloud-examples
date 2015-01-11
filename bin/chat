@@ -9,5 +9,5 @@ var server = http.createServer(app);
 var port = process.env.PORT || 3001;
 
 server.listen(port, function () {
-  debug('Server listening at port %d', port);
+debug('Server listening at port %d', port);
 });

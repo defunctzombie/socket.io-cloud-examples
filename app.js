@@ -17,7 +17,7 @@ app.post('/update', function(req,res) {
   debug('The request was' + req);
   debug('The body was' + body);
 
-  request ({ uri : "http://localhost:3000/update",
+  request ({ uri : "http://iocloud.localtunnel.me/update",
              method : "POST",
              followRedirect : true,
              timeout : 5000, 
