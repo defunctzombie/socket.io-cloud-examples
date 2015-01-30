@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var app = require('../app');
+var debug = require('debug')('chat');
+
+var http = require('http');
+
+var server = http.createServer(app);
+var port = process.env.PORT || 3003;
+
+server.listen(port, function () {
+debug('Server listening at port %d', port);
+});
