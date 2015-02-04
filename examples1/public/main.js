@@ -1,14 +1,16 @@
-$(function() {
-  function addSimpleMessage (data) {
-      $('ul').append("<li>" + data + "</li>");
-  }
+// read application config from config script tag
+var APP = JSON.parse($('#config').text());
 
-  // Socket events
+// setup socket.io connection for our specific app
+var socket = io(APP.CLOUD_URL + '/ns1');
 
-  // Whenever the server emits 'new message', update the chat body
-  socket.on('new message', function (data) {
-    //addChatMessage(data);
-    console.log("new message is:" + data); 	  
-    addSimpleMessage(data);
-  });
+// Whenever the server emits 'new message', update the chat body
+socket.on('new message', function (data) {
+  console.log("new message is:" + data);
+  addSimpleMessage(data);
 });
+
+function addSimpleMessage (data) {
+    $('ul').append("<li>" + data + "</li>");
+}
+
