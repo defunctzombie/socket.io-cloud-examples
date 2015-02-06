@@ -2,15 +2,14 @@
 var APP = JSON.parse($('#config').text());
 
 // setup socket.io connection for our specific app
-var socket = io(APP.CLOUD_URL + '/ns1');
+var socket = io(APP.CLOUD_URL + '/messages');
 
 // Whenever the server emits 'new message', update the chat body
 socket.on('new message', function (data) {
-  console.log("new message is:" + data);
+  console.log("new chat message is:" + data);
   addSimpleMessage(data);
 });
 
 function addSimpleMessage (data) {
     $('ul').append("<li>" + data + "</li>");
 }
-
