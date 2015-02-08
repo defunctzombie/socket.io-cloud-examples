@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export PORT=3001
+export APP_NAME=app1
+export API_KEY=3b184544-97ba-47a9-98f1-a4e8e59ff11d
+export SOCKET_URL=http://app1.cloud.io:3000
+
+./bin/chat
