@@ -19,8 +19,10 @@ app.use(bodyParser.urlencoded());
 
 app.get('/', function(req, res, next) {
   res.locals.app_name = process.env.APP_NAME;
+  res.locals.CLOUD_URL = CLOUD_URL;
   res.locals.CONFIG = JSON.stringify({
-    CLOUD_URL: SOCKET_URL
+    SOCKET_URL: SOCKET_URL,
+    CLOUD_URL: CLOUD_URL
   });
 
   res.render('index', { layout: false });
