@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bootstrap 3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap/css/styles.css">
+	
+	</head>
+	<body>
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<a href="#" class="navbar-brand">Tech Site</a>
+
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					<ul class="nav navbar-nav navbar-right">
+					<li class="active">
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="http://socket.io/blog/">Blog</a>
+					</li>
+					
+
+						
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class = "container">
+			<div class="jumbotron">
+				<h1>
+					Login
+				</h1>
+				
+
+			</div>
+
+		</div>
+
+		<div class="container">
+			<!--	<form> -->
+				<div class="form-group">
+					<label for="emailAddressInput">Email Address</label>
+				email:	<input type="email" class="form-control" id="emailAddressInput" placeholder="email address">
+				</div>
+				<div class="form-group">
+					<label for="passwordInput">Enter Password</label>
+				password:	<input type="password" class="form-control" id="passwordInput" placeholder="password">
+				</div>
+				<button  type="submit" onclick="pushlogin()" class="btn btn-default" >Submit</button>
+			<!--</form>-->
+			<p id="demo"></p>
+		</div>
+
+		<script type="text/javascript">
+		function pushlogin(){
+	
+			emailAd = document.getElementById('emailAddressInput').value;
+			pass = document.getElementById('passwordInput').value;
+
+			var parameters = JSON.stringify({"email": emailAd ,"password":pass});
+			
+			
+                
+          
+          $.ajax({
+  			type: "POST",
+  			url: "http://localhost:8081/registered/login",
+  			data: parameters,
+ 			success: function(){},
+  			dataType: "json",
+  			contentType : "application/json"
+		 }).done(function(data, statusText, xhr){
+  			var status = xhr.status;  
+  			if(status === 202){
+				window.location.href = "http://localhost:8081";
+  			}else {
+  				showAlert();
+  				//alert("invalid email or password");
+  			}
+
+
+  			/*if(status === 400){
+  				 alert("Error occured while logging in");
+  			}else if(status ===403){
+  				 alert("No such user exists");
+  			}*/
+  			            //200
+ 			// var head = xhr.getAllResponseHeaders(); //Detail header info
+		});
+
+			//validate(emailAd, pass);
+
+
+		}
+
+		function showAlert(){
+			alert("invalid email or password");
+		}
+		</script>
+		<div class="navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">Site built by cloud dev team.</p> 
+				<button href="https://socket.io" onclick="socketIO()"class = "navbar-button btn-danger btn pull-right">Learn Socket.IO</button>
+
+			</div>
+
+			<script type="text/javascript">
+			function socketIO(){
+				window.location.href = "http://socket.io/";
+
+			}
+			</script>
+		</div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+	</body>
+
+</html>

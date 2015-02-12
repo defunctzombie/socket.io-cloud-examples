@@ -1,0 +1,21 @@
+{
+  "name": "console",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.11.0",
+    "ejs": "^2.2.4",
+    "express": "^4.11.2",
+    "jade": "^1.9.2",
+    "mongodb": "^1.4.30",
+    "mongoose": "^3.8.23",
+    "path": "^0.11.14",
+    "router": "^1.0.0"
+  }
+}

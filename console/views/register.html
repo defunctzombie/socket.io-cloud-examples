@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bootstrap 3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap/css/styles.css">
+
+	</head>
+	<body>
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<a href="#" class="navbar-brand">Tech Site</a>
+
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					<ul class="nav navbar-nav navbar-right">
+					<li class="active">
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="http://socket.io/blog/">Blog</a>
+					</li>
+					
+						
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class = "container">
+		
+			<div class="jumbotron">
+				<h1>
+					Register
+				</h1>
+
+			
+
+			</div>
+	
+		</div>
+
+		<div class="container pre-scrollable" >
+		<!--	<form   action="http://localhost:8081/registered/" method="post"  enctype="application/json" name="myForm">-->
+				<div class="form-group" >
+					<label for="firstNameInput">First Name</label>
+				firstName:	<input type="text" class="form-control" id="firstNameInput" placeholder="first name">
+				</div>
+				<div class="form-group">
+					<label for="lastNameInput">Last Name</label>
+				lastName:	<input type="text" class="form-control" id="lastNameInput" placeholder="last name">
+				</div>
+				<div class="form-group">
+					<label for="emailAddressInput">Email Address</label>
+				email:	<input type="email" class="form-control" id="emailAddressInput" placeholder="email address">
+				</div>
+				<div class="form-group">
+					<label for="passwordInput">Enter Password</label>
+				password:	<input type="password" class="form-control" id="passwordInput" placeholder="password">
+				</div>
+				<div class="form-group">
+					<label for="retypePasswordInput">Re-Enter Password</label>
+					<input type="password" class="form-control" id="retypePasswordInput" placeholder="re-type password">
+				</div>
+				<button type="submit" onclick="check()" class="btn btn-default">Submit</button>
+		<!--	</form> -->
+		</div>
+
+		<script type="text/javascript">
+		function check(){
+
+		
+			// document.getElementById("demo").innerHTML = "went into check";
+			first = document.getElementById('firstNameInput').value;
+			last = document.getElementById('lastNameInput').value;
+			email = document.getElementById('emailAddressInput').value;
+			pass = document.getElementById('passwordInput').value;
+			retypePass = document.getElementById('retypePasswordInput').value;
+			if(first == null || last == null || email == null || pass == null || retypePass == null){
+				alert("Please check input fields again");
+			}else{
+				if(pass != retypePass){
+					alert("passwords do not match");
+				}
+			//validateRegistration(firstName, lastName, emailAd, pass);
+			
+
+			var parameters = JSON.stringify({"firstName": first, "lastName": last, "email": email ,"password":pass});
+
+			var formData = JSON.stringify($("#myForm").serializeArray());
+
+			$.ajax({
+	  			type: "POST",
+	  			url: "http://localhost:8081/registered",
+	  			data: parameters,
+	 			success: function(){},
+	  			dataType: "json",
+	  			contentType : "application/json"
+			}).done(function(data, statusText, xhr){
+	  			var status = xhr.status;  
+	  			if(status === 201){
+					window.location.href = "http://localhost:8081";
+	  			}else if(status === 400){
+	  				 alert("Error occured while logging in");
+	  			}else if(status ===409){
+	  				 alert("This email already exists. Please try another");
+	  			}
+	  			            //200
+	 			// var head = xhr.getAllResponseHeaders(); //Detail header info
+			});
+		}
+		
+			
+		}
+
+		function registered(){
+			
+		}
+		</script>
+
+		<div class="navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">Site built by cloud dev team.</p> 
+				<button href="https://socket.io" onclick="socketIO()" class = "navbar-button btn-danger btn pull-right">Learn Socket.IO</button>
+
+			</div>
+			<script type="text/javascript">
+			function socketIO(){
+				window.location.href = "http://socket.io/";
+
+			}
+			</script>
+		</div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+	</body>
+
+</html>

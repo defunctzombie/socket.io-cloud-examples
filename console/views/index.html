@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Socket.io Cloud</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap/css/styles.css">
+
+	</head>
+	<body>
+		<div class = "navbar navbar-inverse navbar-static-top">
+			<div class = "container">
+				<a href="#" class="navbar-brand">Cloud</a>
+
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse navHeaderCollapse">
+					<ul class="nav navbar-nav navbar-right">
+					<li class="active">
+						<a href="#">Home</a>
+					</li>
+					<li>
+						<a href="http://socket.io/blog/">Blog</a>
+					</li>
+		
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+		
+		<div class = "container">
+			<center>
+			<div class="jumbotron">
+				<h1>
+					Socket.io Cloud 
+				</h1>
+				<a href="login.html" class="btn btn-default"><h6>Sign In</h6></a>
+				<a href="register.html" class="btn btn-info"><h6>Register</h6></a>
+
+			</div>
+			</center>
+		</div>
+
+		<div class="navbar navbar-default navbar-fixed-bottom">
+			<div class = "container">
+				<p class = "navbar-text pull-left">Site built by cloud dev team.</p> 
+				<button href="https://www.yahoo.com/" onclick="socketIO()"class = "navbar-button btn-danger btn pull-right">Learn Socket.IO</button>
+
+			</div>
+			<script type="text/javascript">
+			function socketIO(){
+				window.location.href = "http://socket.io/";
+
+			}
+			</script>
+		</div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+	</body>
+
+</html>
